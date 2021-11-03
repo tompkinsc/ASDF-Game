@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     public float moveSpeed;
 
@@ -18,10 +18,5 @@ public class MonsterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
-    }
-
-    private void StopMoving()
-    {
-        rb.velocity = Vector3.zero;
     }
 }
