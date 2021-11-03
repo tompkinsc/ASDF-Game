@@ -14,6 +14,54 @@ TextureImporter:
   - first:
       213: -207608973334672184
     second: character_right
+  - first:
+      213: -6923526392631850748
+    second: ASDF Char Sheet_0
+  - first:
+      213: -6914634317351507479
+    second: ASDF Char Sheet_1
+  - first:
+      213: 2566640992214113001
+    second: ASDF Char Sheet_2
+  - first:
+      213: -7014179213539048617
+    second: ASDF Char Sheet_3
+  - first:
+      213: -4183491131287893778
+    second: PlayerWalkFrame1
+  - first:
+      213: -1099529117499377910
+    second: PlayerWalkFrame2
+  - first:
+      213: 3266748806153503791
+    second: PlayerWalkFrame3
+  - first:
+      213: -5318494493611279013
+    second: PlayerWalkFrame4
+  - first:
+      213: -7053811918346555080
+    second: PlayerWalkDiagLeft1
+  - first:
+      213: 6140591644944183191
+    second: PlayerWalkDiagLeft2
+  - first:
+      213: -3857410553231905793
+    second: PlayerWalkDiagLeft3
+  - first:
+      213: 6586305082198096981
+    second: PlayerWalkDiagLeft4
+  - first:
+      213: 2827601773229713732
+    second: PlayerWalkDiagRight1
+  - first:
+      213: -2834214152096384146
+    second: PlayerWalkDiagRight2
+  - first:
+      213: -5402581954724516434
+    second: PlayerWalkDiagRight3
+  - first:
+      213: 4968761198440504912
+    second: PlayerWalkDiagRight4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,7 +167,7 @@ TextureImporter:
         width: 16
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,7 +188,7 @@ TextureImporter:
         width: 16
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,7 +209,7 @@ TextureImporter:
         width: 10
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +230,7 @@ TextureImporter:
         width: 10
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,6 +238,258 @@ TextureImporter:
       bones: []
       spriteID: 8cc043c1dbc6e1df0800000000000000
       internalID: -207608973334672184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkFrame1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8869e2bf041f5c0800000000000000
+      internalID: -4183491131287893778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkFrame2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 66
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07304bd710bdb0f0800000000000000
+      internalID: -1099529117499377910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkFrame3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 66
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2406313bb2d55d20800000000000000
+      internalID: 3266748806153503791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkFrame4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 66
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5dbd68cf69e036b0800000000000000
+      internalID: -5318494493611279013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagLeft1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8317986de63db1e90800000000000000
+      internalID: -7053811918346555080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagLeft2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 35
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f21ab1193c73550800000000000000
+      internalID: 6140591644944183191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagLeft3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 35
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffbe4cd0a89b77ac0800000000000000
+      internalID: -3857410553231905793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagLeft4
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 35
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c74c69391476b50800000000000000
+      internalID: 6586305082198096981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagRight1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4492f9bd4d8ad3720800000000000000
+      internalID: 2827601773229713732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagRight2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 4
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6bf8e6be39daa8d0800000000000000
+      internalID: -2834214152096384146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagRight3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 4
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eada5b6165c2605b0800000000000000
+      internalID: -5402581954724516434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalkDiagRight4
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 4
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e5acefbf594f440800000000000000
+      internalID: 4968761198440504912
       vertices: []
       indices: 
       edges: []
