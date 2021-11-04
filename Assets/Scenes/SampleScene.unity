@@ -1946,9 +1946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1165918693}
-  moveSpeed: 150
-  x: 0
-  y: 0
+  countdown: {fileID: 1781620784}
 --- !u!50 &1532072914
 Rigidbody2D:
   serializedVersion: 4
@@ -2088,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 993, y: 26.528015}
+  m_AnchoredPosition: {x: 45.938995, y: 788}
   m_SizeDelta: {x: 91.878586, y: 53.05639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781620782
@@ -2104,7 +2102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.2756764, b: 0.2756764, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2112,18 +2110,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 24ccec10622c2a44a8b3ca9454b85fb4, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 70
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 7
 --- !u!222 &1781620783
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2144,7 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2ca77812e1dd44fbcebb500085e4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 10
+  countdownTime: 7
   countdownDisplay: {fileID: 1781620782}
   mm: {fileID: 1353180831}
 --- !u!114 &1781620785

@@ -25,8 +25,12 @@ public class CountdownController : MonoBehaviour
             countdownTime--;
         }
 
-        countdownDisplay.gameObject.SetActive(false);
+        timerStop();
+    }
 
+    public void timerStop()
+    {
+        countdownDisplay.gameObject.SetActive(false);
         mm.moveSpeed = 0;
     }
 }
