@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 305608553
     locked: 0
+  - name: Black
+    uniqueID: 2060030799
+    locked: 0

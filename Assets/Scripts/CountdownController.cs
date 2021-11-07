@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CountdownController : MonoBehaviour
 {
-    public float countdownTime;
+    private float countdownTime = 11f;
     public Text countdownDisplay;
+    public PlayerMovement pm;
     public MonsterMovement mm;
+    public LifeController lc;
 
     private void Start()
     {
@@ -16,7 +18,7 @@ public class CountdownController : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        while(countdownTime > 0)
+        while(countdownTime >= 0)
         {
             countdownDisplay.text = countdownTime.ToString();
 
@@ -25,12 +27,26 @@ public class CountdownController : MonoBehaviour
             countdownTime--;
         }
 
-        timerStop();
+        timeRanOut();
     }
 
     public void timerStop()
     {
         countdownDisplay.gameObject.SetActive(false);
-        mm.moveSpeed = 0;
+        mm.StopMoving();
+    }
+
+    public void timeRanOut()
+    {
+        pm.cantMove = true;
+        mm.StopMoving();
+        lc.loseHeart();
+    }
+
+    public void ResetTimer()
+    {
+        countdownTime = 11f;
+        countdownDisplay.gameObject.SetActive(true);
+        StartCoroutine(Countdown());
     }
 }

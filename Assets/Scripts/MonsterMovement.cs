@@ -6,7 +6,7 @@ public class MonsterMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    public float moveSpeed;
+    private float moveSpeed = 0f;
 
     private Vector3 moveDir = new Vector3(0, 1).normalized;
 
@@ -18,5 +18,20 @@ public class MonsterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = moveDir * moveSpeed * Time.deltaTime;
+    }
+
+    public void StopMoving()
+    {
+        moveSpeed = 0f;
+    }
+
+    public void StartMoving()
+    {
+        moveSpeed = 3.6f;
+    }
+
+    public void ResetPosition()
+    {
+        rb.transform.localPosition = new Vector3(0, -5.4f);
     }
 }

@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 150;
 
     public CountdownController countdown;
+    public LevelChangeController lcc;
 
     private bool madeSelection = false;
+    public bool cantMove = false;
 
     private Vector3 moveDir = new Vector3(0, 0).normalized;
 
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         setAnimXY(0, 0, false);
 
         StopMoving();
+
+        lcc.ChangeLevel();
     }
 
     IEnumerator moveS()
@@ -52,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         setAnimXY(0, 0, false);
 
         StopMoving();
+
+        lcc.ChangeLevel();
     }
 
     IEnumerator moveD()
@@ -71,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
         setAnimXY(0, 0, false);
 
         StopMoving();
+
+        lcc.ChangeLevel();
     }
 
     IEnumerator moveF()
@@ -86,37 +94,54 @@ public class PlayerMovement : MonoBehaviour
         setAnimXY(0, 0, false);
 
         StopMoving();
+
+        lcc.ChangeLevel();
     }
 
     private void Update()
     {
-        if(madeSelection == false)
+        if(madeSelection == false & cantMove == false)
         {
             if(Input.GetKeyDown(KeyCode.A))
             {
-                madeSelection = true;
-                StartCoroutine(moveA());
+                movePlayer(0);
             }
             if(Input.GetKeyDown(KeyCode.S))
             {
-                madeSelection = true;
-                StartCoroutine(moveS());
+                movePlayer(1);
             }
             if(Input.GetKeyDown(KeyCode.D))
             {
-                madeSelection = true;
-                StartCoroutine(moveD());
+                movePlayer(2);
             }
             if(Input.GetKeyDown(KeyCode.F))
             {
-                madeSelection = true;
-                StartCoroutine(moveF());
+                movePlayer(3);
             }
         }
-        else
+    }
+
+    // stop updating the update function by making madeSelection = true, start the correct movement coroutine, stop the timer
+    private void movePlayer(int dir)
+    {
+        madeSelection = true;
+        countdown.timerStop();
+
+        if(dir == 0) // A
         {
-            // player made selection, disable timer
-            countdown.timerStop();
+            StartCoroutine(moveA());
+        }
+        else if(dir == 1) // S
+        {
+            StartCoroutine(moveS());
+        }
+        else if(dir == 2) // D
+        {
+            StartCoroutine(moveD());
+        }
+        else if(dir == 3) // F
+        {
+            StartCoroutine(moveF());
         }
     }
 
@@ -137,5 +162,11 @@ public class PlayerMovement : MonoBehaviour
     private void StopMoving()
     {
         rb.velocity = Vector3.zero;
+    }
+
+    public void ResetPosition()
+    {
+        rb.transform.localPosition = new Vector3(0, -3.867335f);
+        madeSelection = false;
     }
 }

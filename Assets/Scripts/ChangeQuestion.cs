@@ -33,7 +33,7 @@ namespace UNITY_API_Demo
 
                 JSON_Trivia categoryList = JSON_Trivia.FromJson(categories);
 
-                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple");
+                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple");
 
                 JSON_Qs qList = JSON_Qs.FromJson(questions);
 
