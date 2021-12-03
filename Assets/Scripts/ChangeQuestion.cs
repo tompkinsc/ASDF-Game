@@ -51,7 +51,7 @@ namespace UNITY_API_Demo
                 int cat = rand.nextInt()*/
 
 
-                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&category=31&type=multiple");
+                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&type=multiple");
 
                 JSON_Qs qList = JSON_Qs.FromJson(questions);
 
