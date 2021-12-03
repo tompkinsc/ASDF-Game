@@ -10,6 +10,7 @@ using Newtonsoft.Json.Converters;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace UNITY_API_Demo
 {
@@ -26,6 +27,7 @@ namespace UNITY_API_Demo
         {
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            String difficulty;
 
             using (var webClient = new WebClient())
             {
@@ -33,15 +35,60 @@ namespace UNITY_API_Demo
 
                 JSON_Trivia categoryList = JSON_Trivia.FromJson(categories);
 
-                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple");
+                /*int QD = rand.nextInt(3);
+
+                if (QD == 0)
+                {
+                    difficulty = "easy";
+                }
+                else if (QD == 1)
+                {
+                    difficulty = "medium";
+                }
+                else
+                    difficulty = "hard";
+
+                int cat = rand.nextInt()*/
+
+
+                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&category=31&type=multiple");
 
                 JSON_Qs qList = JSON_Qs.FromJson(questions);
 
+                int qArrange = Random.Range(0,3);
                 myQ.GetComponent<Text>().text = System.Net.WebUtility.HtmlDecode(qList.Results[0].Question);
-                A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
-                S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
-                D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
-                F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+
+                if (qArrange == 0)
+                {
+                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                }
+                else if (qArrange == 1)
+                {
+                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                }
+                else if (qArrange == 2)
+                {
+                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                }
+                else
+                {
+                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                }
+
+
+
 
             }
 
