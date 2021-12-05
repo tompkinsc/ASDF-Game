@@ -11,96 +11,84 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UNITY_API_Demo;
 
-namespace UNITY_API_Demo
+//namespace UNITY_API_Demo
+//{
+public class ChangeQuestion : MonoBehaviour
 {
-    public class ChangeQuestion : MonoBehaviour
+    public GameObject myQ;
+    public GameObject A;
+    public GameObject S;
+    public GameObject D;
+    public GameObject F;
+
+    public void changeQ()
     {
-        public GameObject myQ;
-        public GameObject A;
-        public GameObject S;
-        public GameObject D;
-        public GameObject F;
+        ServicePointManager.Expect100Continue = true;
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        String difficulty;
 
-        // Start is called before the first frame update
-        void Start()
+        using (var webClient = new WebClient())
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            String difficulty;
+            string categories = webClient.DownloadString("https://opentdb.com/api_category.php");
 
-            using (var webClient = new WebClient())
+            JSON_Trivia categoryList = JSON_Trivia.FromJson(categories);
+
+
+            string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&type=multiple");
+
+            JSON_Qs qList = JSON_Qs.FromJson(questions);
+
+            int qArrange = Random.Range(0, 3);
+            myQ.GetComponent<Text>().text = System.Net.WebUtility.HtmlDecode(qList.Results[0].Question);
+
+            if (qArrange == 0)
             {
-                string categories = webClient.DownloadString("https://opentdb.com/api_category.php");
-
-                JSON_Trivia categoryList = JSON_Trivia.FromJson(categories);
-
-                /*int QD = rand.nextInt(3);
-
-                if (QD == 0)
-                {
-                    difficulty = "easy";
-                }
-                else if (QD == 1)
-                {
-                    difficulty = "medium";
-                }
-                else
-                    difficulty = "hard";
-
-                int cat = rand.nextInt()*/
-
-
-                string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&type=multiple");
-
-                JSON_Qs qList = JSON_Qs.FromJson(questions);
-
-                int qArrange = Random.Range(0,3);
-                myQ.GetComponent<Text>().text = System.Net.WebUtility.HtmlDecode(qList.Results[0].Question);
-
-                if (qArrange == 0)
-                {
-                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
-                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
-                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
-                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
-                }
-                else if (qArrange == 1)
-                {
-                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
-                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
-                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
-                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
-                }
-                else if (qArrange == 2)
-                {
-                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
-                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
-                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
-                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
-                }
-                else
-                {
-                    A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
-                    S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
-                    D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
-                    F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
-                }
-
-
-
-
+                A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+            }
+            else if (qArrange == 1)
+            {
+                A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+            }
+            else if (qArrange == 2)
+            {
+                A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+            }
+            else
+            {
+                A.GetComponent<Text>().text = "A. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
+                S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
+                D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
             }
 
         }
+    }
 
-        // Update is called once per frame
-        void Update()
-        {
+    // Start is called before the first frame update
+    void Start()
+    {
+        changeQ();
 
-        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }
+//}
 
 namespace UNITY_API_Demo
 {

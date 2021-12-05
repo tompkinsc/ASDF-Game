@@ -8,8 +8,12 @@ public class LevelChangeController : MonoBehaviour
     public PlayerMovement pm;
     public MonsterMovement mm;
     public CountdownController cc;
+    public ChangeQuestion cQ;
+    
 
     public float fadeTime = 1f;
+
+    
 
     // on game start, fade the black out
     void Start()
@@ -19,6 +23,7 @@ public class LevelChangeController : MonoBehaviour
 
     public void ChangeLevel()
     {
+        
         StartCoroutine(Fade(true));
     }
 
@@ -28,6 +33,7 @@ public class LevelChangeController : MonoBehaviour
         pm.ResetPosition();
         mm.ResetPosition();
         cc.ResetTimer();
+        cQ.changeQ();
         yield return new WaitForSeconds(1f);
         StartCoroutine(Fade(false));
     }
@@ -35,7 +41,7 @@ public class LevelChangeController : MonoBehaviour
     // if fadeIn == true, black will fade in instead of out when coroutine is started
     IEnumerator Fade(bool fadeIn)
     {
-        if(fadeIn == true)
+        if (fadeIn == true)
         {
             Color tmpColor = black.color;
 
@@ -44,7 +50,7 @@ public class LevelChangeController : MonoBehaviour
                 tmpColor.a += Time.deltaTime / fadeTime;
                 black.color = tmpColor;
 
-                if(tmpColor.a >= 1f)
+                if (tmpColor.a >= 1f)
                     tmpColor.a = 1.0f;
 
                 yield return null;
@@ -53,6 +59,7 @@ public class LevelChangeController : MonoBehaviour
             black.color = tmpColor;
 
             StartCoroutine(BehindTheSceneStuff()); // reset player position and monster position
+            
         }
         else // fade black out
         {
@@ -63,15 +70,16 @@ public class LevelChangeController : MonoBehaviour
                 tmpColor.a -= Time.deltaTime / fadeTime;
                 black.color = tmpColor;
 
-                if(tmpColor.a <= 0f)
+                if (tmpColor.a <= 0f)
                     tmpColor.a = 0.0f;
 
                 yield return null;
             }
 
-            black.color = tmpColor; 
+            black.color = tmpColor;
 
             mm.StartMoving(); // make monster start moving
         }
     }
+
 }
