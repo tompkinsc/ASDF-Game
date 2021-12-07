@@ -10,6 +10,7 @@ public class LifeController : MonoBehaviour
     public GameObject heart3;
 
     public ScoreController sc;
+    public AudioController ac;
 
     private int maxHearts = 3;
     private int currHearts;
@@ -37,6 +38,8 @@ public class LifeController : MonoBehaviour
             dead = true;
             GameOver();
         }
+
+        ac.PlayWrong();
 
         currHearts--;
     }

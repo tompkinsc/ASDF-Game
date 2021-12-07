@@ -11,6 +11,7 @@ public class CountdownController : MonoBehaviour
     public PlayerMovement pm;
     public MonsterMovement mm;
     public LifeController lc;
+    public AudioController ac;
 
     private void Start()
     {
@@ -26,6 +27,11 @@ public class CountdownController : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             countdownTime--;
+
+            if(countdownTime < 5)
+            {
+                ac.PlayTicking();
+            }
         }
 
         timeRanOut();
@@ -40,6 +46,7 @@ public class CountdownController : MonoBehaviour
     public void timeRanOut()
     {
         pm.cantMove = true;
+        ac.PlayTimeOut();
         pm.anim.Play("Hurt");
         mm.StopMoving();
         mm.anim.Play("Attack");

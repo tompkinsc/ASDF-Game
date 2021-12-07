@@ -30,7 +30,6 @@ public class ChangeQuestion : MonoBehaviour
     {
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-        String difficulty;
 
         using (var webClient = new WebClient())
         {
