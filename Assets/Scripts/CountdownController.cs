@@ -40,6 +40,7 @@ public class CountdownController : MonoBehaviour
     public void timeRanOut()
     {
         pm.cantMove = true;
+        pm.anim.Play("Hurt");
         mm.StopMoving();
         lc.loseHeart();
         lcc.ChangeLevel();
