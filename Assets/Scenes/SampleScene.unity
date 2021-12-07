@@ -1370,7 +1370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff582675b8498cf489dc183b9df3dda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1353180832}
+  anim: {fileID: 1798872716}
 --- !u!50 &1353180832
 Rigidbody2D:
   serializedVersion: 4
@@ -2761,7 +2762,7 @@ GameObject:
   - component: {fileID: 1798872717}
   - component: {fileID: 1798872716}
   m_Layer: 0
-  m_Name: GFX
+  m_Name: mGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

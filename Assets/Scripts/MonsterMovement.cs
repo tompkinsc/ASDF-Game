@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator anim;
 
     private float moveSpeed = 0f;
 

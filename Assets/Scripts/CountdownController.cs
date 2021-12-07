@@ -42,6 +42,7 @@ public class CountdownController : MonoBehaviour
         pm.cantMove = true;
         pm.anim.Play("Hurt");
         mm.StopMoving();
+        mm.anim.Play("Attack");
         lc.loseHeart();
         lcc.ChangeLevel();
     }

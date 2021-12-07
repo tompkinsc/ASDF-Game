@@ -30,6 +30,7 @@ public class LevelChangeController : MonoBehaviour
         // teleport player & monster back to original position
         pm.anim.Play("Idle Tree");
         pm.ResetPosition();
+        mm.anim.Play("Creep");
         mm.ResetPosition();
         cc.ResetTimer();
         cQ.changeQ();
