@@ -53,3 +53,6 @@ TagManager:
   - name: Black
     uniqueID: 2060030799
     locked: 0
+  - name: HUD Overlay
+    uniqueID: 1908818737
+    locked: 0

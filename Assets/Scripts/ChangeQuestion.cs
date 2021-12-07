@@ -17,11 +17,14 @@ using UNITY_API_Demo;
 //{
 public class ChangeQuestion : MonoBehaviour
 {
+    public DebugAnsController debug;
+
     public GameObject myQ;
     public GameObject A;
     public GameObject S;
     public GameObject D;
     public GameObject F;
+    public string correctAns;
 
     public void changeQ()
     {
@@ -35,8 +38,7 @@ public class ChangeQuestion : MonoBehaviour
 
             JSON_Trivia categoryList = JSON_Trivia.FromJson(categories);
 
-
-            string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&type=multiple");
+            string questions = webClient.DownloadString("https://opentdb.com/api.php?amount=10&type=multiple&difficulty=easy");
 
             JSON_Qs qList = JSON_Qs.FromJson(questions);
 
@@ -49,6 +51,7 @@ public class ChangeQuestion : MonoBehaviour
                 S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[0]);
                 D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
                 F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                correctAns = "A";
             }
             else if (qArrange == 1)
             {
@@ -56,6 +59,7 @@ public class ChangeQuestion : MonoBehaviour
                 S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
                 D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
                 F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                correctAns = "S";
             }
             else if (qArrange == 2)
             {
@@ -63,6 +67,7 @@ public class ChangeQuestion : MonoBehaviour
                 S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
                 D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
                 F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
+                correctAns = "D";
             }
             else
             {
@@ -70,8 +75,9 @@ public class ChangeQuestion : MonoBehaviour
                 S.GetComponent<Text>().text = "S. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[1]);
                 D.GetComponent<Text>().text = "D. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].IncorrectAnswers[2]);
                 F.GetComponent<Text>().text = "F. " + System.Net.WebUtility.HtmlDecode(qList.Results[0].CorrectAnswer);
+                correctAns = "F";
             }
-
+            debug.UpdateAnswer();
         }
     }
 

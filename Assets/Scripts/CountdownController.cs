@@ -7,6 +7,7 @@ public class CountdownController : MonoBehaviour
 {
     private float countdownTime = 11f;
     public Text countdownDisplay;
+    public LevelChangeController lcc;
     public PlayerMovement pm;
     public MonsterMovement mm;
     public LifeController lc;
@@ -41,6 +42,7 @@ public class CountdownController : MonoBehaviour
         pm.cantMove = true;
         mm.StopMoving();
         lc.loseHeart();
+        lcc.ChangeLevel();
     }
 
     public void ResetTimer()

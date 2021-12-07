@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     public CountdownController countdown;
     public LevelChangeController lcc;
+    public ChangeQuestion cq;
+    public LifeController lc;
+    public ScoreController sc;
+    public DebugAnsController debug;
 
     private bool madeSelection = false;
     public bool cantMove = false;
@@ -36,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
         StopMoving();
 
+        checkAns("A");
+
         lcc.ChangeLevel();
     }
 
@@ -56,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         setAnimXY(0, 0, false);
 
         StopMoving();
+
+        checkAns("S");
 
         lcc.ChangeLevel();
     }
@@ -78,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
         StopMoving();
 
+        checkAns("D");
+
         lcc.ChangeLevel();
     }
 
@@ -95,7 +105,22 @@ public class PlayerMovement : MonoBehaviour
 
         StopMoving();
 
+        checkAns("F");
+
         lcc.ChangeLevel();
+    }
+
+    private void checkAns(string ans)
+    {
+        if(ans != cq.correctAns)
+        {
+            lc.loseHeart();
+            anim.Play("Hurt");
+        }
+        else
+        {
+            sc.addPoint();
+        }
     }
 
     private void Update()
@@ -118,6 +143,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 movePlayer(3);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            if(debug.isShown)
+            {
+                debug.showAnswer(true);
+            }
+            else
+            {
+                debug.showAnswer(false);
+            }
+
+            debug.isShown = !debug.isShown;
         }
     }
 

@@ -9,11 +9,9 @@ public class LevelChangeController : MonoBehaviour
     public MonsterMovement mm;
     public CountdownController cc;
     public ChangeQuestion cQ;
+    public LifeController lc;
     
-
     public float fadeTime = 1f;
-
-    
 
     // on game start, fade the black out
     void Start()
@@ -30,12 +28,17 @@ public class LevelChangeController : MonoBehaviour
     IEnumerator BehindTheSceneStuff()
     {
         // teleport player & monster back to original position
+        pm.anim.Play("Idle Tree");
         pm.ResetPosition();
         mm.ResetPosition();
         cc.ResetTimer();
         cQ.changeQ();
         yield return new WaitForSeconds(1f);
-        StartCoroutine(Fade(false));
+        if(!lc.dead)
+        {
+            StartCoroutine(Fade(false));
+            pm.cantMove = false;
+        }
     }
 
     // if fadeIn == true, black will fade in instead of out when coroutine is started
